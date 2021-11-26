@@ -1,0 +1,32 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.smestaj-card{
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #d1d1d1;
+    margin: 10px 10px 10px 0;
+}
+
+.smestaj-card__img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.smestaj-card__name{
+    margin: 10px 0 0 0;
+}
+
+.smestaj-card__desc{
+    margin: 10px;
+}
+
+.smestaj-card__number,
+.smestaj-card__price{
+    margin: 0 0 10px 0;
+}
