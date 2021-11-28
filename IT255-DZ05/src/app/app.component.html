@@ -1,27 +1,16 @@
 <div class="main">
   <h1 class="title">{{ title }}</h1>
   <hr>
-  <div class="hotel-form">
-    <h2>Dodaj novi hotel</h2>
-    <form>
-      <label for="name">Ime hotela</label><br>
-      <input type="text" name="name" #name><br>
-      <label for="desc">Opis hotela</label><br>
-      <textarea name="desc" id="desc" cols="30" rows="10" #desc></textarea><br>
-      <label for="roomNumber">Broj sobe</label><br>
-      <input type="number" name="roomNumber" #roomNumber><br><br>
-      <label for="price">Cena sobe</label><br>
-      <input type="number" name="price" #price><br><br>
-      <button type="button" (click)="addSmestaj(name, desc, roomNumber, price)">Unesi</button>
-    </form>
-  </div>
+  <app-form (formDataEmitter)="addSmestaj($event)"></app-form>
   <div class="smestaj-container">
     <h2>Lista dostupnih hotela</h2>
-    <button (click)="shuffleSmestaj()">Promesaj listu</button>
-    <p>Pretraži po ceni smeštaja</p>
-    <input type="number" [(ngModel)]="inputPrice">
+    <button (click)="shuffleSmestaj()" class="btn btn-primary">Promesaj listu</button>
+    <div class="search-field-container">
+      <p>Pretraži po ceni smeštaja</p>
+      <input type="number" [(ngModel)]="inputPrice">
+    </div>
     <div class="smestaj-list">
-      <app-smestaj *ngFor="let smestaj of listaSmestaja | filter : inputPrice" [smestaj]="smestaj"></app-smestaj>
+      <app-smestaj *ngFor="let smestaj of listaSmestaja | filter : inputPrice" [smestaj]="smestaj" (deleteSmestajEmitter)="deleteSmestaj($event)"></app-smestaj>
     </div>
   </div>
 </div>

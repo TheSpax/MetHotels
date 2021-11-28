@@ -1,0 +1,14 @@
+<div class="hotel-form">
+    <h2>Dodaj novi hotel</h2>
+    <form>
+        <label for="name">Ime hotela</label><br>
+        <input type="text" name="name" #name><br>
+        <label for="desc">Opis hotela</label><br>
+        <textarea name="desc" id="desc" cols="30" rows="10" #desc></textarea><br>
+        <label for="roomNumber">Broj sobe</label><br>
+        <input type="number" name="roomNumber" #roomNumber><br>
+        <label for="price">Cena sobe</label><br>
+        <input type="number" name="price" #price><br><br>
+        <button type="button" class="btn btn-primary" (click)="add(name, desc, roomNumber, price)">Unesi</button>
+    </form>
+</div>

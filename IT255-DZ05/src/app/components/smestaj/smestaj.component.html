@@ -1,7 +1,24 @@
 <div class="smestaj-card">
-    <img src="../../../assets/img/room.jpg" alt="hotel room" class="smestaj-card__img">
+    <img src="../../../assets/img/room.jpg" alt="hotel room"
+        class="smestaj-card__img">
     <h3 class="smestaj-card__name">{{ smestaj.hotelName }}</h3>
     <p class="smestaj-card__desc">{{ smestaj.hotelDesc }}</p>
     <p class="smestaj-card__number">Broj sobe: {{smestaj.roomNumber}}</p>
     <p class="smestaj-card__price">Cena sobe: {{smestaj.price}}</p>
+    <form [hidden]="isDisplayed">
+        <label for="name">Ime hotela</label><br>
+        <input type="text" name="name" #name><br>
+        <label for="desc">Opis hotela</label><br>
+        <textarea name="desc" id="desc" cols="30" rows="5" #desc></textarea><br>
+        <label for="roomNumber">Broj sobe</label><br>
+        <input type="number" name="roomNumber" #roomNumber><br>
+        <label for="price">Cena sobe</label><br>
+        <input type="number" name="price" #price><br><br>
+        <button type="button" class="btn btn-primary" (click)="update(name,
+            desc, roomNumber, price)">Primeni promene</button><br><br>
+    </form>
+    <div class="button-holder">
+        <button class="btn btn-danger" (click)="delete()">Obriši</button>
+        <button class="btn btn-warning" (click)="isDisplayed= !isDisplayed;">Ažuriraj</button>
+    </div>
 </div>

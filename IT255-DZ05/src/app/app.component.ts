@@ -18,8 +18,12 @@ export class AppComponent {
     ]
   }
 
-  addSmestaj(hotelName: HTMLInputElement, hotelDesc: HTMLTextAreaElement, roomNumber: HTMLInputElement, price: HTMLInputElement): void{
-    this.listaSmestaja.push(new Smestaj(hotelName.value, hotelDesc.value, parseFloat(roomNumber.value), parseFloat(price.value)))
+  addSmestaj(smestaj: Smestaj): void{
+    this.listaSmestaja.push(smestaj);
+  }
+
+  deleteSmestaj(smestaj: Smestaj): void{
+    this.listaSmestaja.splice(this.listaSmestaja.indexOf(smestaj), 1)
   }
 
   shuffleSmestaj(): void{

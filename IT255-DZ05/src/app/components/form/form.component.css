@@ -1,0 +1,10 @@
+.hotel-form{
+    padding: 0 3rem;
+}
+
+.hotel-form input,
+.hotel-form textarea{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
