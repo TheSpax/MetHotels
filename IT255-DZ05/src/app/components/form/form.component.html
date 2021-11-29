@@ -1,14 +1,29 @@
 <div class="hotel-form">
     <h2>Dodaj novi hotel</h2>
-    <form>
+    <form [formGroup]="smestajForm">
         <label for="name">Ime hotela</label><br>
-        <input type="text" name="name" #name><br>
+        <input type="text" name="name" formControlName="name"><br>
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+            Polje ime treba biti popunjeno. Brojevi i specijalni karakteri nisu
+            dozvoljeni.
+        </div>
         <label for="desc">Opis hotela</label><br>
-        <textarea name="desc" id="desc" cols="30" rows="10" #desc></textarea><br>
+        <textarea name="desc" id="desc" cols="30" rows="10"
+            formControlName="desc"></textarea><br>
+        <div class="alert alert-danger" *ngIf="desc.invalid && desc.touched">
+            Polje opis hotela treba biti popunjeno.
+        </div>
         <label for="roomNumber">Broj sobe</label><br>
-        <input type="number" name="roomNumber" #roomNumber><br>
+        <input type="number" name="roomNumber" formControlName="roomNumber"><br>
+        <div class="alert alert-danger" *ngIf="roomNumber.invalid && roomNumber.touched">
+            Polje broj sobe treba biti popunjeno. Dozvoljen je samo upis brojeva.
+        </div>
         <label for="price">Cena sobe</label><br>
-        <input type="number" name="price" #price><br><br>
-        <button type="button" class="btn btn-primary" (click)="add(name, desc, roomNumber, price)">Unesi</button>
+        <input type="number" name="price" formControlName="price"><br>
+        <div class="alert alert-danger" *ngIf="price.invalid && price.touched">
+            Polje cena sobe treba biti popunjeno. Dozvoljen je samo upis brojeva.
+        </div>
+        <button type="button" class="btn btn-primary"
+            [disabled]="smestajForm.invalid" (click)="add(smestajForm.value)">Unesi</button>
     </form>
 </div>
