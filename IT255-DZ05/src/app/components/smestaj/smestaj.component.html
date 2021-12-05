@@ -4,7 +4,11 @@
     <h3 class="smestaj-card__name">{{ smestaj.hotelName }}</h3>
     <p class="smestaj-card__desc">{{ smestaj.hotelDesc }}</p>
     <p class="smestaj-card__number">Broj sobe: {{smestaj.roomNumber}}</p>
-    <p class="smestaj-card__price">Cena sobe: {{smestaj.price}}</p>
+    <p class="smestaj-card__nights">Broj noćenja: </p>
+    <input class="smestaj-card__nights-input" type="number"
+        [(ngModel)]="numberOfNights" min="0" (blur)="changeNumberOfNights()" (input)="changeNumberOfNights()">
+    <p class="smestaj-card__price">Cena sobe po jednoj noći: {{ smestaj.price }}</p>
+    <p class="smestaj-card__price price-per-night">Cena sobe za uneti broj noćenja: {{ getPrice() }}</p>
     <form [hidden]="isDisplayed">
         <label for="name">Ime hotela</label><br>
         <input type="text" name="name" #name><br>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Smestaj } from './smestaj.model';
+import { RoomServiceService } from 'src/app/services/room-service.service';
 
 @Component({
   selector: 'app-smestaj',
@@ -11,8 +12,9 @@ export class SmestajComponent implements OnInit {
   @Input() smestaj: Smestaj;
 
   isDisplayed = true;
+  numberOfNights = 0;
 
-  constructor() {
+  constructor(private roomService: RoomServiceService) {
     this.smestaj = new Smestaj('', '', 0, 0);
     this.deleteSmestajEmitter = new EventEmitter();
   }
@@ -32,6 +34,16 @@ export class SmestajComponent implements OnInit {
     this.smestaj.roomNumber = parseFloat(roomNumber.value);
     this.smestaj.price = parseFloat(price.value);
     this.isDisplayed = !this.isDisplayed;
+  }
+
+  changeNumberOfNights(): void{
+    if(this.numberOfNights < 0 || !this.numberOfNights){
+      this.numberOfNights = 0;
+    }
+  }
+
+  getPrice(): number{
+    return this.roomService.calculatePrice(this.numberOfNights, this.smestaj.price)
   }
 
   ngOnInit(): void {}

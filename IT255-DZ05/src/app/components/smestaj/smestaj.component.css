@@ -24,8 +24,18 @@
 }
 
 .smestaj-card__number,
-.smestaj-card__price{
+.smestaj-card__price,
+.smestaj-card__nights,
+.smestaj-card__nights-input{
     margin: 0 0 10px 0;
+}
+
+.smestaj-card__nights-input{
+    text-align: center;
+}
+
+.price-per-night{
+    text-align: center;
 }
 
 form{

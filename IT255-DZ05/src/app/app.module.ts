@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SmestajComponent } from './components/smestaj/smestaj.component';
 import { FilterPipe } from './filter/filter.pipe';
 import { FormComponent } from './components/form/form.component';
+import { RoomServiceService } from './services/room-service.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { FormComponent } from './components/form/form.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    RoomServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
